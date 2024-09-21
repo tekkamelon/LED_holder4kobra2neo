@@ -47,11 +47,27 @@ module cavity(){
 
 }
 
+// スリット
+module slit(){
+
+	for(tx = [-30:5:30]){
+
+		translate([tx, holder_position, 10]){
+
+			cube([1.5, 15, 30], center = true);
+
+		}
+
+	}
+
+}
+
 difference(){
 
 	body();
 	screw_hole();
 	cavity();
+	slit();
 
 }
 
