@@ -24,7 +24,7 @@ module screw_hole(){
 
 		translate([ty, -10, -5]){
 
-			cylinder(h = 10, r = 2);
+			cylinder(h = 10, r = 2.1);
 
 		}
 	
