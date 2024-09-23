@@ -1,7 +1,7 @@
 $fn = 50;
 distance = 15.5;
 holder_position = 20;
-honder_height = 10.5;
+honder_height = 6;
 
 // 本体
 module body(){
@@ -12,11 +12,12 @@ module body(){
 	// ホルダー本体
 	translate([0, holder_position, honder_height]){
 
-		cube([70, 24, 24], center = true);
+		cube([70, 24, 15], center = true);
 
 	}
 
-	translate([0, holder_position, honder_height + 12]){
+	// 頂上部分
+	translate([0, holder_position, honder_height + 7.5]){
 
  		rotate([45, 0, 0]){
 
@@ -65,7 +66,7 @@ module slit(){
 
 		translate([tx, holder_position, 10]){
 
-			cube([1.5, 15, 30], center = true);
+			cube([1.5, 15, 50], center = true);
 
 		}
 
