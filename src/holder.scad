@@ -14,7 +14,19 @@ module body(){
 
 	}
 	
-	// polygon
+	// 座標
+	points = [
+		
+		[0, 0],
+		[0, 24],
+		[24, 24],
+		[40, 12],
+		[24, 0]
+
+	];
+
+	#linear_extrude(70)
+		polygon(points);
 
 }
 
