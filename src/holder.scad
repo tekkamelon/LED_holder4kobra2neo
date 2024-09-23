@@ -47,13 +47,30 @@ module screw_hole(){
 // 空洞
 module cavity(){
 
-	 translate([0, holder_position, 10.5]){
+// 	 translate([0, holder_position, 10.5]){
+// 
+//  		rotate([0, 90, 0]){
+//  
+//  			cylinder(h = 70, r = 17.5/2, center = true);
+//  
+//   		}
+// 
+// 	}
+	// ホルダー本体
+	translate([0, holder_position, honder_height + 2]){
 
- 		rotate([0, 90, 0]){
- 
- 			cylinder(h = 70, r = 17.5/2, center = true);
- 
-  		}
+		cube([71, 17.5, 15 - 4], center = true);
+
+	}
+
+	// 頂上部分
+	translate([0, holder_position, honder_height + 7.5]){
+
+ 		rotate([45, 0, 0]){
+
+			cube([71, 17 - 4.6, 17 - 4.6], center = true);
+
+		}
 
 	}
 
@@ -62,7 +79,7 @@ module cavity(){
 // スリット
 module slit(){
 
-	for(tx = [-30:5:30]){
+	for(tx = [-30:6:30]){
 
 		translate([tx, holder_position, 10]){
 
