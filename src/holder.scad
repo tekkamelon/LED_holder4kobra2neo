@@ -18,15 +18,23 @@ module body(){
 	points = [
 		
 		[0, 0],
-		[0, 24],
-		[24, 24],
-		[40, 12],
-		[24, 0]
+		[0, 30],
+		[30, 30],
+		[30 / 2 * 3, 30 / 2],
+		[30, 0]
 
 	];
 
-	#linear_extrude(70)
-		polygon(points);
+	translate([70/2, 10.5, thickness]){
+
+		rotate([0, -90, 0]){
+
+			#linear_extrude(70)
+				polygon(points);
+
+		}
+
+	}
 
 }
 
