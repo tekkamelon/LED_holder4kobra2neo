@@ -1,7 +1,7 @@
 $fn = 50;
 thickness = 3;
 distance = 15.5;
-holder_position = 20;
+holder_position = 15.5;
 honder_height = 6;
 
 // 本体
@@ -14,7 +14,7 @@ module body(){
 
 	}
 
-	translate([-70/2, 10.5, thickness - 3]){
+	translate([-70/2, 10.5, 0]){
 
 		cube([70, 25, 30]);
 
@@ -25,7 +25,7 @@ module body(){
 // ネジ穴
 module screw_hole(){
 
-	for(ty = [-distance:distance*2:distance]){
+	for(ty = [-distance:distance * 2:distance]){
 
 		translate([ty, -10, -5]){
 
@@ -44,14 +44,14 @@ module cavity(){
 	points = [
 		
 		[0, 0],
-		[0, 15],
-		[15, 15],
-		[15 / 2 * 3, 15 / 2],
-		[15, 0]
+		[0, 15.5],
+		[15.5, 15.5],
+		[15.5 / 2 * 3, 15.5 / 2],
+		[15.5, 0]
 
 	];
 
-	translate([70/2, 17.5, thickness]){
+	translate([70/2, holder_position, thickness]){
 
 		rotate([0, -90, 0]){
 
@@ -65,26 +65,26 @@ module cavity(){
 }
 
 // スリット
-// module slit(){
-// 
-// 	for(tx = [-30:6:30]){
-// 
-// 		translate([tx, holder_position, 10]){
-// 
-// 			cube([1.5, 15, 50], center = true);
-// 
-// 		}
-// 
-// 	}
-// 
-// }
+module slit(){
+
+	for(tx = [-30:6:30]){
+
+		translate([tx, holder_position * 1.5, 10]){
+
+			cube([1.5, 15, 50], center = true);
+
+		}
+
+	}
+
+}
 
 difference(){
 
 	body();
 	screw_hole();
 	cavity();
-// 	slit();
+ 	slit();
 
 }
 
