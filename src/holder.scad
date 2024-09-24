@@ -13,26 +13,10 @@ module body(){
 		cube([50, 50, thickness], center = true);
 
 	}
-	
-	// 座標
-	points = [
-		
-		[0, 0],
-		[0, 30],
-		[30, 30],
-		[30 / 2 * 3, 30 / 2],
-		[30, 0]
 
-	];
+	translate([-70/2, 10.5, thickness - 3]){
 
-	translate([70/2, 10.5, thickness]){
-
-		rotate([0, -90, 0]){
-
-			#linear_extrude(70)
-				polygon(points);
-
-		}
+		cube([70, 25, 30]);
 
 	}
 
@@ -56,19 +40,23 @@ module screw_hole(){
 // 空洞
 module cavity(){
 
-	// ホルダー本体
-	translate([0, holder_position, honder_height + 2]){
+	// 座標
+	points = [
+		
+		[0, 0],
+		[0, 15],
+		[15, 15],
+		[15 / 2 * 3, 15 / 2],
+		[15, 0]
 
-		cube([71, 17.5, 15 - 4], center = true);
+	];
 
-	}
+	translate([70/2, 17.5, thickness]){
 
-	// 頂上部分
-	translate([0, holder_position, honder_height + 7.5]){
+		rotate([0, -90, 0]){
 
- 		rotate([45, 0, 0]){
-
-			cube([71, 17 - 4.6, 17 - 4.6], center = true);
+			#linear_extrude(70)
+				polygon(points);
 
 		}
 
@@ -77,26 +65,26 @@ module cavity(){
 }
 
 // スリット
-module slit(){
-
-	for(tx = [-30:6:30]){
-
-		translate([tx, holder_position, 10]){
-
-			cube([1.5, 15, 50], center = true);
-
-		}
-
-	}
-
-}
+// module slit(){
+// 
+// 	for(tx = [-30:6:30]){
+// 
+// 		translate([tx, holder_position, 10]){
+// 
+// 			cube([1.5, 15, 50], center = true);
+// 
+// 		}
+// 
+// 	}
+// 
+// }
 
 difference(){
 
 	body();
 	screw_hole();
 	cavity();
-	slit();
+// 	slit();
 
 }
 
