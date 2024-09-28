@@ -1,8 +1,9 @@
 $fn = 50;
 thickness = 3;
 distance = 15.5;
-holder_position = 15.5;
+holder_position = 13;
 honder_height = 6;
+slit_y = 15.5;
 
 // 本体
 module body(){
@@ -10,11 +11,11 @@ module body(){
 	// 板
 	translate([0, 0, thickness / 2]){
 
-		cube([50, 50, thickness], center = true);
+		cube([50, 45, thickness], center = true);
 
 	}
 
-	translate([-70/2, 10.5, 0]){
+	translate([-70/2, 10.5 - 2.5, 0]){
 
 		cube([70, 25, 25]);
 
@@ -69,9 +70,9 @@ module slit(){
 
 	for(tx = [-30:6:30]){
 
-		translate([tx, holder_position * 1.5, 10]){
+		translate([tx, holder_position + slit_y / 2, 10]){
 
-			cube([1.5, 15, 50], center = true);
+			#cube([1.5, slit_y, 50], center = true);
 
 		}
 
