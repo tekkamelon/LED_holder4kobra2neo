@@ -30,7 +30,7 @@ module screw_hole(){
 
 		translate([ty, -10, -5]){
 
-			cylinder(h = 10, r = 2.1);
+			cylinder(h = 10, d = 4.5);
 
 		}
 	
@@ -56,7 +56,7 @@ module cavity(){
 
 		rotate([0, -90, 0]){
 
-			#linear_extrude(70)
+			linear_extrude(70)
 				polygon(points);
 
 		}
